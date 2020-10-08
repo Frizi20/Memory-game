@@ -1,0 +1,268 @@
+@import url('https://fonts.googleapis.com/css2?family=Sansita+Swashed:wght@800&display=swap');
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    width: 100%;
+    height: 100vh;
+    background:url('imagini/bg.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    overflow: hidden;
+}
+
+.title{
+    color: #91d18b;
+    text-shadow: 0 0 1px black,
+                   0 0 3px black,
+                   0 0 5px black;
+    font-size: 2.5rem;
+    text-align: center ;
+    margin: 20px 0;
+    font-family: 'Sansita Swashed', cursive;
+
+    font-weight: bold;
+
+
+}
+.card{
+    background-color: transparent;
+    width: 85.7px;
+    height: 120px;
+    /* border: 1px solid grey; */
+    perspective: 700px;
+    cursor: pointer;
+}
+
+
+.flip-card-inner{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition:transform 0.8s;
+    transform-style: preserve-3d;
+    
+}
+
+.rotate{
+    transform:rotateY(180deg);
+}
+
+.flip-card-front{
+    width: fit-content;
+    height: 100%;
+}
+.flip-card-front img{
+    height: 100%;
+    object-fit: contain;
+}
+
+.flip-card-front, .flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden; /* Safari */
+    backface-visibility: hidden;
+  }
+
+  /* Style the front side (fallback if image is missing) */
+.flip-card-front {
+    color: black;
+  }
+
+.flip-card-front img{
+    
+}
+  
+  /* Style the back side */
+  .flip-card-back {
+    background-color: rgb(255, 255, 255);
+    color: white;
+    transform: rotateY(180deg);
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+  }
+
+  .flip-card-back img{
+    width: 90%;
+    object-fit: contain;
+    object-position: center;
+  }
+
+  .board{
+      display: grid;
+      grid-template-columns: repeat(5,auto);
+      grid-gap: 10px;
+      max-width: fit-content;
+      margin: 0 auto;
+      margin-top: 20px;
+  }
+
+  img{
+      pointer-events: none;
+  }
+
+  .flip-card-front{
+    -moz-user-select: none;
+    -webkit-user-select: none;
+  }
+
+  .timer{
+      text-align: center;
+      display: flex;
+      justify-content: center;
+      font-size:26px;
+      font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+      font-style: italic;
+      font-weight: bold;
+      text-shadow: 0 0 1px black,
+                   0 0 3px black,
+                   0 0 5px black;
+      color: rgb(247, 247, 247);
+      text-transform: uppercase;
+  }
+
+  
+  .timer-value{
+      margin-left: 10px;
+      margin-right: 15px;
+      
+
+  }
+
+  .flip-card-front{
+      background: none;
+  }
+  .flip-card-front img,
+  .flip-card-back{
+      border-radius: 10px;
+      border:1px solid grey;
+  }
+  
+  .flip-card-inner:hover .flip-card-front img{
+      box-shadow: 0 0 3px black;
+  }
+
+  .accuracy,
+  .accuracy-value{
+      display: none;
+  }
+
+  .acuracy{
+    margin-left: 15px;
+}
+.accuracy-value{
+    margin-left: 10px;
+}
+
+
+/* Start game */
+
+.start{
+    position: absolute;
+    left: 0;
+    top: 0;
+    background: rgba(0, 0, 0, 0.847);
+    width: 100%;
+    height: 100%;
+    z-index: 20;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3.5rem;
+    color: white;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    /* display: none; */
+    flex-direction: column;
+}
+.start-game{
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    cursor: pointer;
+    margin-bottom: 40px;
+    /* display: none; */
+    
+
+}
+
+.start-game:hover{
+    color: rgb(32, 85, 32);
+}
+
+.start p {
+    font-size: 20px;
+    font-family: sans-serif;
+    text-align: center;
+    font-style: italic;
+    margin-bottom: 100px;
+    
+}
+
+
+/* New Game */
+
+
+.new-game{
+    font-size: 36px;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    color: #91d18b;
+    text-shadow: 0 0 1px black,
+           0 0 3px black,
+           0 0 5px black;
+    text-align: center;
+    cursor: pointer;
+}
+
+
+.new-game:hover{
+    color: #4f774b;
+    text-shadow: 0 0 1px white,
+           0 0 3px white,
+           0 0 5px white;
+}
+
+.title,
+.timer,
+.new-game
+{
+    -moz-user-select: none;
+    -webkit-user-select: none;
+}
+
+.start{
+    display: none;
+}
+
+@media screen and (max-width:590px){
+    .card{
+        background-color: transparent;
+        width: 60px;
+        height: 84px;
+        
+    }
+    .new-game{
+        position: absolute;
+        left: 50%;
+        bottom: 10%;
+        transform: translateX(-50%);
+    }
+    .board{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+    }
+    .timer{
+        margin-top: 40px;
+    }
+}
